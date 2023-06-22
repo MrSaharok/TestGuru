@@ -10,4 +10,6 @@ List of entities:
 
 * Category
 
+* Result
+
 * User
