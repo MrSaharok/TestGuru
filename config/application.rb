@@ -9,7 +9,10 @@ Bundler.require(*Rails.groups)
 module TestGuru
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.0
+    config.load_defaults 6.0
+    config.time_zone = 'Krasnoyarsk'
+    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
+    config.i18n.default_locale = :ru
 
     # Configuration for the application, engines, and railties goes here.
     #
