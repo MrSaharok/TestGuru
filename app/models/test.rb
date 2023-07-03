@@ -1,4 +1,7 @@
 class Test < ApplicationRecord
+  has_many :test_passages
+  has_many :users, through: :test_passages
+
   scope :sort_categories, ->(category) {
     joins(:category)
       .where(categories: { title: category })
