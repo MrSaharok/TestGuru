@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_27_154549) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_03_143949) do
   create_table "answers", force: :cascade do |t|
     t.string "body", null: false
     t.boolean "correct", null: false
@@ -34,6 +34,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_154549) do
     t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
+  create_table "test_passings", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "test_id", null: false
+    t.integer "current_question_id", null: false
+    t.string "status", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["current_question_id"], name: "index_test_passings_on_current_question_id"
+    t.index ["test_id"], name: "index_test_passings_on_test_id"
+    t.index ["user_id"], name: "index_test_passings_on_user_id"
+  end
+
   create_table "tests", force: :cascade do |t|
     t.string "title", null: false
     t.integer "level", default: 0, null: false
@@ -54,6 +66,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_154549) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "questions", "tests"
+  add_foreign_key "test_passings", "questions", column: "current_question_id"
+  add_foreign_key "test_passings", "tests"
+  add_foreign_key "test_passings", "users"
   add_foreign_key "tests", "categories"
   add_foreign_key "tests", "users", column: "author_id"
 end
