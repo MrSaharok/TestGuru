@@ -39,8 +39,8 @@ answers = Answer.create!([
                            { body: '2007', correct: true, question: questions[3] },
                            { body: '1999', correct: false, question: questions[3] }
                          ])
-test_passings = TestPassing.create([
-  { user: bob, test: Ruby, status: 'Not finished'},
-   { user: lama, test: JS, status: 'Not finished'},
-   { user: lama, test: Ruby, status: 'Finished'}
-])
+test_passings = TestPassing.create!([
+                                      { user: bob, test: Ruby, status: 'Not finished'},
+                                      { user: lama, test: JS, status: 'Not finished'},
+                                      { user: lama, test: Ruby, status: 'Finished'}
+                                     ])
