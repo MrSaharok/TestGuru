@@ -5,10 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-users = User.create!([
-                       { first_name: 'Lama', email: 'lama@mail.ru' },
-                       { first_name: 'Bob', email: 'bob@gmail.com' }
-                     ])
+bob = User.create!(first_name: 'John', email: 'bob@gmail.com')
+
+lama = User.create!(first_name: 'Daniel', email: 'lama@mail.ru')
 
 categories = Category.create!([
                                 { title: 'Frontend' },
@@ -40,3 +39,8 @@ answers = Answer.create!([
                            { body: '2007', correct: true, question: questions[3] },
                            { body: '1999', correct: false, question: questions[3] }
                          ])
+test_passings = TestPassing.create([
+  { user: bob, test: Ruby, status: 'Not finished'},
+   { user: lama, test: JS, status: 'Not finished'},
+   { user: lama, test: Ruby, status: 'Finished'}
+])
