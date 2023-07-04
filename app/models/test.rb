@@ -1,6 +1,6 @@
 class Test < ApplicationRecord
-  has_many :test_passages
-  has_many :users, through: :test_passages
+  has_many :test_passings
+  has_many :users, through: :test_passings
 
   scope :sort_categories, ->(category) {
     joins(:category)
