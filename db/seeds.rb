@@ -1,46 +1,42 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-bob = User.create!(first_name: 'John', email: 'bob@gmail.com')
 
-lama = User.create!(first_name: 'Daniel', email: 'lama@mail.ru')
+bob = User.find_or_create_by!(name: 'Bob', email: 'bob@gmail.com')
 
-categories = Category.create!([
-                                { title: 'Frontend' },
-                                { title: 'Backend' },
-                                { title: 'Mobile' }
-                              ])
+lama = User.find_or_create_by!(name: 'Lama', email: 'lama@mail.ru')
 
-tests = Test.create!([
-                       { title: 'Ruby', level: 2, category: categories[1], author: bob },
-                       { title: 'HTML', level: 1, category: categories[0], author: bob },
-                       { title: 'JS', level: 3, category: categories[1], author: lama },
-                       { title: 'Go', level: 3, category: categories[2], author: lama }
-                     ])
+categories = Category.find_or_create_by!([
+                                          { title: 'Frontend' },
+                                          { title: 'Backend' },
+                                          { title: 'Mobile' }
+                                         ])
 
-questions = Question.create!([
-                               { body: 'Кто создатель руби?', test: tests[0] },
-                               { body: 'Кто разработал HTML?', test: tests[1] },
-                               { body: 'Кто основатель JS?', test: tests[2] },
-                               { body: 'В каком году началась разработка Go?', test: tests[3] }
-                             ])
+tests = Test.find_or_create_by!([
+                                  { title: 'Ruby', level: 2, category_id: categories[1].id, author_id: bob.id },
+                                  { title: 'HTML', level: 2, category_id: categories[0].id, author_id: bob.id },
+                                  { title: 'JS', level: 3, category_id: categories[1].id, author_id: lama.id },
+                                  { title: 'Go', level: 3, category_id: categories[2].id, author_id: lama.id }
+                                ])
 
-answers = Answer.create!([
-                           { body: 'Matz', correct: true, question: questions[0] },
-                           { body: 'Mirakami', correct: false, question: questions[0] },
-                           { body: 'Тим Бернерс-Ли ', correct: true, question: questions[1] },
-                           { body: 'Тим Бертон', correct: false, question: questions[1] },
-                           { body: 'Брендан Эйх', correct: true, question: questions[2] },
-                           { body: 'Гордон Фриман', correct: false, question: questions[2] },
-                           { body: '2007', correct: true, question: questions[3] },
-                           { body: '1999', correct: false, question: questions[3] }
-                         ])
-test_passings = TestPassing.create!([
-                                      { user: bob, test: Ruby, status: 'Not finished'},
-                                      { user: lama, test: JS, status: 'Not finished'},
-                                      { user: lama, test: Ruby, status: 'Finished'}
-                                     ])
+questions = Question.find_or_create_by!([
+                                          { body: 'Who is the creator of Ruby?', test_id: tests[0].id },
+                                          { body: 'Who developed HTML?', test_id: tests[1].id },
+                                          { body: 'Who is the founder of JS?', test_id: tests[2].id },
+                                          { body: 'In what year did Go development start?', test_id: tests[3].id }
+                                        ])
+
+answers = Answer.find_or_create_by!([
+                                      { body: 'Matz', correct: true, question_id: questions[0].id },
+                                      { body: 'Tim Berners-Lee', correct: true, question_id: questions[1].id },
+                                      { body: 'Brendan Eich', correct: true, question_id: questions[2].id },
+                                      { body: '2007', correct: true, question_id: questions[3].id }
+                                    ])
+
+test_passings = TestPassing.find_or_create_by!([
+                                                 { user_id: bob.id, test_id: tests[0].id,
+                                                   current_question_id: questions[0].id, status: 'Not finished'},
+                                                 { user_id: bob.id, test_id: tests[1].id,
+                                                   current_question_id: questions[1].id, status: 'Finished'},
+                                                 { user_id: lama.id, test_id: tests[2].id,
+                                                   current_question_id: questions[2].id, status: 'Not finished'},
+                                                 { user_id: lama.id, test_id: tests[0].id,
+                                                   current_question_id: questions[0].id, status: 'Finished'}
+                                               ])
