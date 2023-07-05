@@ -1,8 +1,7 @@
 class User < ApplicationRecord
 
   def test_by_level(level)
-    TestPassing.where(user_id: self.id).where.not(status: 'Not started').map do | tp |
-      Test.where(id: tp.test_id, level: level)
-    end.flatten
+    test_level = TestPassing.where(user_id: id).pluck(:test_id)
+    Test.where(id: test_level, level: level)
   end
 end
