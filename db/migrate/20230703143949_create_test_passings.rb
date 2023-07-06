@@ -5,8 +5,6 @@ class CreateTestPassings < ActiveRecord::Migration[6.0]
       t.references :test, foreign_key: true, null: false
       t.references :current_question, foreign_key: { to_table: :questions }, null: false
       t.string :status, null: false
-
-      t.timestamps
     end
   end
 end
