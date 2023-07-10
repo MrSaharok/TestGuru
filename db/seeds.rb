@@ -9,65 +9,61 @@ categories = Category.create!([
                               ])
 
 tests = Test.create!([
-                       { title: 'Ruby', level: 2, category_id: categories[1].id, author_id: bob.id },
-                       { title: 'HTML', level: 2, category_id: categories[0].id, author_id: bob.id },
-                       { title: 'JS', level: 3, category_id: categories[1].id, author_id: lama.id },
-                       { title: 'Go', level: 3, category_id: categories[2].id, author_id: lama.id }
+                       { title: 'Ruby', level: 2, category: categories[1], author: bob },
+                       { title: 'HTML', level: 2, category: categories[0], author: bob },
+                       { title: 'JS', level: 3, category: categories[1], author: lama },
+                       { title: 'Go', level: 3, category: categories[2], author: lama }
                      ])
 
 questions = Question.create!([
-                               { body: 'Who is the creator of Ruby?', test_id: tests[0].id },
-                               { body: 'Year of release ruby?', test_id: tests[0].id },
-                               { body: 'Is everything in ruby an object?', test_id: tests[0].id },
-                               { body: 'Who developed HTML?', test_id: tests[1].id },
-                               { body: 'Year of development HTML?', test_id: tests[1].id },
-                               { body: 'HTML the tag markup language of documents?', test_id: tests[1].id },
-                               { body: 'Who is the founder of JS?', test_id: tests[2].id },
-                               { body: 'Year of development JS?', test_id: tests[2].id },
-                               { body: 'full name JS?', test_id: tests[2].id },
-                               { body: 'In what year did Go development start?', test_id: tests[3].id }
+                               { body: 'Who is the creator of Ruby?', test: tests[0] },
+                               { body: 'Year of release ruby?', test: tests[0] },
+                               { body: 'Is everything in ruby an object?', test: tests[0] },
+                               { body: 'Who developed HTML?', test: tests[1] },
+                               { body: 'Year of development HTML?', test: tests[1] },
+                               { body: 'HTML the tag markup language of documents?', test: tests[1] },
+                               { body: 'Who is the founder of JS?', test: tests[2] },
+                               { body: 'Year of development JS?', test_id: tests[2] },
+                               { body: 'full name JS?', test: tests[2] },
+                               { body: 'In what year did Go development start?', test: tests[3] }
                              ])
 
 answers = Answer.create!([
-                           { body: 'Matz', correct: true, question_id: questions[0].id },
-                           { body: 'Matiz', question_id: questions[0].id },
-                           { body: 'Motsumoto', question_id: questions[0].id },
-                           { body: '1999', question_id: questions[0].id },
-                           { body: '1995', correct: true, question_id: questions[0].id },
-                           { body: '2000', question_id: questions[0].id },
-                           { body: 'Yes', question_id: questions[0].id },
-                           { body: 'No', correct: true, question_id: questions[0].id },
-                           { body: 'Maybe no', question_id: questions[0].id },
-                           { body: 'Tim Berton', question_id: questions[1].id },
-                           { body: 'Tim Berners-Lee', correct: true, question_id: questions[1].id },
-                           { body: 'Bruce Lee', question_id: questions[1].id },
-                           { body: '1985', question_id: questions[1].id },
-                           { body: '1990', question_id: questions[1].id },
-                           { body: '1993', correct: true, question_id: questions[1].id },
-                           { body: 'No way', question_id: questions[1].id },
-                           { body: 'No', question_id: questions[1].id },
-                           { body: 'Yes', correct: true, question_id: questions[1].id },
-                           { body: 'Benedict', question_id: questions[2].id },
-                           { body: 'Branch', question_id: questions[2].id },
-                           { body: 'Brendan Eich', correct: true, question_id: questions[2].id },
-                           { body: '1980', question_id: questions[2].id },
-                           { body: '1995', correct: true, question_id: questions[2].id },
-                           { body: '2004', question_id: questions[2].id },
-                           { body: 'Java Script', correct: true, question_id: questions[2].id },
-                           { body: 'Jon Spock', question_id: questions[2].id },
-                           { body: 'J7', question_id: questions[2].id },
-                           { body: '2008', question_id: questions[3].id },
-                           { body: '2006', question_id: questions[3].id },
-                           { body: '2007', correct: true, question_id: questions[3].id }
+                           { body: 'Matz', correct: true, question: questions[0] },
+                           { body: 'Matiz', question: questions[0] },
+                           { body: 'Motsumoto', question: questions[0] },
+                           { body: '1999', question: questions[0] },
+                           { body: '1995', correct: true, question: questions[0] },
+                           { body: '2000', question: questions[0] },
+                           { body: 'Yes', question: questions[0] },
+                           { body: 'No', correct: true, question: questions[0] },
+                           { body: 'Maybe no', question: questions[0] },
+                           { body: 'Tim Berton', question: questions[1] },
+                           { body: 'Tim Berners-Lee', correct: true, question: questions[1] },
+                           { body: 'Bruce Lee', question: questions[1] },
+                           { body: '1985', question: questions[1] },
+                           { body: '1990', question: questions[1] },
+                           { body: '1993', correct: true, question: questions[1] },
+                           { body: 'No way', question: questions[1] },
+                           { body: 'No', question: questions[1] },
+                           { body: 'Yes', correct: true, question: questions[1] },
+                           { body: 'Benedict', question: questions[2] },
+                           { body: 'Branch', question: questions[2] },
+                           { body: 'Brendan Eich', correct: true, question: questions[2] },
+                           { body: '1980', question: questions[2] },
+                           { body: '1995', correct: true, question: questions[2] },
+                           { body: '2004', question: questions[2] },
+                           { body: 'Java Script', correct: true, question: questions[2] },
+                           { body: 'Jon Spock', question: questions[2] },
+                           { body: 'J7', question: questions[2] },
+                           { body: '2008', question: questions[3] },
+                           { body: '2006', question: questions[3] },
+                           { body: '2007', correct: true, question: questions[3] }
                          ])
 
 test_passings = TestPassing.create!([
-                                      { user_id: bob.id, test_id: tests[0].id,
-                                        current_question_id: questions[0].id, status: 'Not finished' },
-                                      { user_id: bob.id, test_id: tests[1].id,
-                                        current_question_id: questions[1].id, status: 'Finished' },
-                                      { user_id: lama.id, test_id: tests[2].id,
-                                        current_question_id: questions[2].id, status: 'Not finished' },
-                                      { user_id: lama.id, test_id: tests[0].id,
-                                        current_question_id: questions[0].id, status: 'Finished' }
+                                      { user: bob, test: tests[0], current_question: questions[0] },
+                                      { user: bob, test: tests[1], current_question: questions[1] },
+                                      { user: lama, test: tests[2], current_question: questions[2] },
+                                      { user: lama, test: tests[0], current_question: questions[0] }
                                     ])
