@@ -5,8 +5,6 @@ class User < ApplicationRecord
 
   validates :email, presence: true
 
-  scope :test_level, -> (level) { where(level: level) }
-
   def test_by_level(level)
     tests.where(level: level)
   end

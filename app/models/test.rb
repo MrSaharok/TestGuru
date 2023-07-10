@@ -13,6 +13,7 @@ class Test < ApplicationRecord
   scope :medium, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY) }
 
+  scope :test_level, -> (level) { where(level: level) }
   scope :find_by_category_tests, -> (name) { joins(:category)
                                               .where(categories: { title: name })
                                               .order(title: :desc)
