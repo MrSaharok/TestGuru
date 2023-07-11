@@ -17,9 +17,8 @@ class Test < ApplicationRecord
   scope :find_by_category_tests, -> (name) { joins(:category)
                                               .where(categories: { title: name })
                                               .order(title: :desc)
-                                              .pluck(:title)
                                            }
   def self.sort_by_category_name(name)
-    find_by_category_tests(name)
+    find_by_category_tests(name).pluck(:title)
   end
 end
