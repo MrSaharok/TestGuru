@@ -1,0 +1,10 @@
+<h1>Создать вопрос</h1>
+
+  <form action="<%= test_questions_path(@test) %>" method="post">
+    <p>
+      <label for="question-body">Question text: </label>
+      <input type="text" name="question[body]" id="question-body">
+    </p><br>
+    <input type="submit" value="Create">
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  </form>
