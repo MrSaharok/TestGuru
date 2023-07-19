@@ -7,8 +7,6 @@ class TestPassing < ApplicationRecord
 
   before_validation :before_validation_set_question, on: %i[create update]
 
-  scope :successful, -> { where('score >= ?', SUCCESS_RATE) }
-
   def completed?
     current_question.nil?
   end
@@ -19,19 +17,11 @@ class TestPassing < ApplicationRecord
   end
 
   def success?
-    score  >= SUCCESS_RATE
+    result  >= SUCCESS_RATE
   end
 
   def result
-    correct_questions * 100.0 / test.questions.size if completed?
-  end
-
-  def current_question_number
-    test.questions.order(:id).where('id < ?', current_question.id).size + 1
-  end
-
-  def cache_result
-    update!(score: result)
+    (correct_questions * 100 / test.total_correct_answers_count).round
   end
 
   private
