@@ -4,7 +4,7 @@ class CreateTestPassings < ActiveRecord::Migration[6.1]
       t.references :user, foreign_key: true, null: false
       t.references :test, foreign_key: true, null: false
       t.references :current_question, foreign_key: { to_table: :questions },null: false
-      t.integer :correct_questions, default: 0
+      t.integer :correct_answers_done, default: 0
     end
   end
 end
