@@ -28,7 +28,7 @@ questions = Question.create!([
                                { body: 'In what year did Go development start?', test: tests[3] }
                              ])
 
-answers = Answer.create!([
+Answer.create!([
                            { body: 'Matz', correct: true, question: questions[0] },
                            { body: 'Matiz', question: questions[0] },
                            { body: 'Motsumoto', question: questions[0] },
