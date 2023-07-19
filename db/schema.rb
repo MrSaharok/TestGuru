@@ -38,8 +38,9 @@ ActiveRecord::Schema.define(version: 2023_07_03_143949) do
   create_table "test_passings", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "test_id", null: false
-    t.integer "current_question_id", null: false
-    t.index ["current_question_id"], name: "index_test_passings_on_current_question_id"
+    t.integer "question_id", null: false
+    t.integer "correct_questions", default: 0
+    t.index ["question_id"], name: "index_test_passings_on_question_id"
     t.index ["test_id"], name: "index_test_passings_on_test_id"
     t.index ["user_id"], name: "index_test_passings_on_user_id"
   end
@@ -64,7 +65,7 @@ ActiveRecord::Schema.define(version: 2023_07_03_143949) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "questions", "tests"
-  add_foreign_key "test_passings", "questions", column: "current_question_id"
+  add_foreign_key "test_passings", "questions"
   add_foreign_key "test_passings", "tests"
   add_foreign_key "test_passings", "users"
   add_foreign_key "tests", "categories"
