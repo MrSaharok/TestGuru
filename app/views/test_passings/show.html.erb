@@ -1,0 +1,18 @@
+<h1>Pass the test<%= @test_passing.test.title %></h1>
+
+<b>
+  <%= @test_passing.current_question.body %>
+</b>
+<%= render 'shared/errors', resource: @test_passing %>
+
+
+
+<%= form_with url: test_passing_path(@test_passing), local: true, method: :put do |form| %>
+  <%= form.collection_check_boxes :answer_ids, @test_passing.current_question.answers, :id, :body, include_hidden: false do |b| %>
+    <p>
+      <%= b.check_box id: "answer_ids_#{b.object.id}" %>
+      <%= b.label %>
+    </p>
+  <% end %>
+  <p><%= form.submit 'Next' %></p>
+<% end %>
