@@ -1,19 +1,23 @@
-<h1>Pass the test<%= @test_passing.test.title %></h1>
+<h1>Pass the <%= @test_passing.test.title %>Test</h1>
 
-<h2>
+<b>
   <%= @test_passing.current_question.body %>
-</h2>
+</b>
 
-<yu>Question: <%= current_question_on_test %> / <%= @test_passing.test.questions.size %></yu>
+<p>
+  Question: <%= @test_passing.current_question_number %> / <%= @test_passing.test.questions.size %>
+</p>
 
 <%= render 'shared/errors', resource: @test_passing %>
 
-<%= form_with url: test_passing_path(@test_passing), local: true, method: :put do |form| %>
+<%= form_with url: test_passing_path(@test_passing), local: true, data: { turbo: false }, method: :put do |form| %>
   <%= form.collection_check_boxes :answer_ids, @test_passing.current_question.answers, :id, :body do |b| %>
+
     <p>
       <%= b.check_box id: "answer_ids_#{b.object.id}" %>
       <%= b.label %>
     </p>
   <% end %>
+
   <p><%= form.submit 'Next' %></p>
 <% end %>

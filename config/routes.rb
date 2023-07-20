@@ -12,5 +12,5 @@ Rails.application.routes.draw do
 
   resources :test_passings, only: %i[show update] do
     member { get :result }
-    end
+  end
 end

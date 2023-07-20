@@ -24,6 +24,10 @@ class TestPassing < ApplicationRecord
     (correct_questions * 100 / test.total_correct_answers_count).round
   end
 
+  def current_question_number
+    test.questions.order(:id).where('id < ?', current_question.id).size + 1
+  end
+
   private
 
   def before_validation_set_question
@@ -31,7 +35,7 @@ class TestPassing < ApplicationRecord
       if new_record?
         test.questions.first
       else
-        test.questions.order(:id).where('id > ?', current_question.id).first
+        test.questions.order(:id).where('id > ?', current_question.id).first# || self.current_question
       end
   end
 
