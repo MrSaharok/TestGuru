@@ -35,7 +35,7 @@ class TestPassing < ApplicationRecord
       if new_record?
         test.questions.first
       else
-        test.questions.order(:id).where('id > ?', current_question.id).first# || self.current_question
+        test.questions.order(:id).where('id > ?', current_question.id).first
       end
   end
 
