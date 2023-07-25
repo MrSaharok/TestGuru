@@ -1,6 +1,6 @@
-bob = User.create!(name: 'Bob', email: 'bob@gmail.com')
+bob = User.create!(name: 'Bob', email: 'bob@gmail.com', password: 'test')
 
-lama = User.create!(name: 'Lama', email: 'lama@mail.ru')
+lama = User.create!(name: 'Lama', email: 'lama@mail.ru', password: 'test')
 
 categories = Category.create!([
                                 { title: 'Frontend' },
