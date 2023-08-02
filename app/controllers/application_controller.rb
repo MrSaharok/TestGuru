@@ -1,24 +1,16 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
 
+  before_action :authenticate_user!
 
-  helper_method :current_user,
-                :logged_in?
-
-  private
-
-  def authenticate_user!
-    unless current_user
-      cookies[:path] = request.path
-      redirect_to login_path, alert: 'Log in first'
-    end
+  def alert_messages_for(entity)
+    entity.errors.full_messages.to_sentence
   end
 
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name])
   end
 
-  def logged_in?
-    current_user.present?
+  def after_sign_in_path_for(_resource)
+    current_user.is_a?(Admin) ? admin_tests_path : tests_path
   end
 end
