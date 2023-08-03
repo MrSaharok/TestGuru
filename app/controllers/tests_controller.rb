@@ -1,4 +1,4 @@
-class Admin::TestsController < Admin::BaseController
+class TestsController < ApplicationController
 
   before_action :find_test, only: %i[start]
 
@@ -8,12 +8,6 @@ class Admin::TestsController < Admin::BaseController
 
   def start
     current_user.tests.push(@test)
-    redirect_to current_user.test_passing(@test)
-  end
-
-  private
-
-  def find_test
-    @test = Test.find(params[:id])
+    redirect_to current_user.test_passing(@test), notice: t('.start')
   end
 end
