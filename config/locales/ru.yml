@@ -92,6 +92,7 @@ ru:
       welcome: "Добро пожаловать, %{first_name} гуру!"
       unauthorized: "Нет прав для просмотра этой страницы"
       welcome_flash: "Привет, %{first_name}!"
+      management: "Управление"
 
     test_passings:
       result:
