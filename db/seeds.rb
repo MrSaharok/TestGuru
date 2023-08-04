@@ -1,6 +1,8 @@
-bob = User.create!(first_name: 'Bob', last_name: 'Jordan',email: 'bob@gmail.com', password: 'test', type: 'Admin')
-
-lama = User.create!(first_name: 'Lama', last_name: 'Preston', email: 'lama@mail.ru', password: 'test')
+users = User.create!([
+                       { first_name: 'Bob', last_name: 'Jordan',email: 'bob@gmail.com', password: 'test123', type: 'Admin' },
+                       { first_name: 'Lama', last_name: 'Preston', email: 'lama@mail.ru', password: 'test123' },
+                       { first_name: 'Sally', last_name: 'Tomson', email: 'sally@gmail.com', password: 'test111' }
+                     ])
 
 categories = Category.create!([
                                 { title: 'Frontend' },
@@ -9,10 +11,10 @@ categories = Category.create!([
                               ])
 
 tests = Test.create!([
-                       { title: 'Ruby', level: 2, category: categories[1], author: bob },
-                       { title: 'HTML', level: 2, category: categories[0], author: bob },
-                       { title: 'JS', level: 3, category: categories[1], author: lama },
-                       { title: 'Go', level: 3, category: categories[2], author: lama }
+                       { title: 'Ruby', level: 2, category: categories[1], author: users[0] },
+                       { title: 'HTML', level: 2, category: categories[0], author: users[0] },
+                       { title: 'JS', level: 3, category: categories[1], author: users[0] },
+                       { title: 'Go', level: 3, category: categories[2], author: users[0] }
                      ])
 
 questions = Question.create!([

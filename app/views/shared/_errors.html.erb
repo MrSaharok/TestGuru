@@ -1,6 +1,6 @@
 <% if resource.errors.present? %>
   <div>
-    <h2><%= pluzalize(resource.errors.count, 'error') %>detected:</h2>
+    <h2><%= t('general.errors') %></h2>
     <ul>
       <% resource.errors.full_messages.each do |message| %>
         <li><%= message %></li>

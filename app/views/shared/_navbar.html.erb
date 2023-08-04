@@ -1,6 +1,6 @@
 <p class="nav user" ><%= link_to 'TestGuru', root_path %></p>
 <% if user_signed_in? %>
-    <p class="nav user">Welcome, <b><%= current_user.first_name %></b> Guru |
-      <%= link_to 'Logout', destroy_user_session_path, data: {turbo_method: :delete} %>
+    <p class="nav user"><b><%= t('general.welcome', first_name: current_user.first_name)%></b> |
+      <%= link_to t('general.logout'), destroy_user_session_path, data: {turbo_method: :delete} %>
     </p>
 <% end %>

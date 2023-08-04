@@ -5,5 +5,5 @@
     <%= form.text_field :body, id: :question_body %>
   </p>
   <p><%= form.submit %></p>
-  <p><%= link_to 'Back', admin_test_path(@question.test) %></p>
+  <p><%= link_to t('general.back'), admin_test_path(@question.test) %></p>
 <% end %>
