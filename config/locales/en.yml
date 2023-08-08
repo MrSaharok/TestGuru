@@ -113,6 +113,13 @@ en:
       destroy:
         success: "Answer deleted"
 
+    gists:
+      index:
+        question: "Question"
+        url: "URL"
+        email: "Author email"
+        gist_list_header: "Gist List"
+
   general:
     errors: "Errors"
     back: "Back"
@@ -124,6 +131,7 @@ en:
     unauthorized: "Unauthorized to see this page"
     welcome_flash: "Welcome, %{first_name}!"
     management: "Management"
+    gist_list: "Gist list"
 
   test_passings:
     result:
@@ -131,9 +139,13 @@ en:
       test_passed: "Test completed successfully!"
       test_failed: "Test is failed!"
       score: "Score"
+    gist:
+      success: "Gist was successfully created!"
+      failure: "An error occurred while saving gist"
     show:
       in_progress_header: "Passing %{title} test"
       next: "Next"
+      gist_question: "Gist Question"
     update:
       test_completed: "Test completed!"
 
@@ -150,3 +162,7 @@ en:
   tests_mailer:
     completed_test:
       subject: "You just completed the TestGuru test!"
+
+  services:
+    gist:
+      description: "A questions about %{title} from TestGuru"

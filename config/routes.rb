@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   end
 
   resources :test_passings, only: %i[show update] do
-    member { get :result }
+    member do
+    get :result
+    post :gist
+    end
   end
 
   namespace :admin do
