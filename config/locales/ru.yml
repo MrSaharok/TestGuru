@@ -108,9 +108,6 @@ ru:
       test_passed: "Тест пройден успешно!"
       test_failed: "Тест не пройден!"
       score: "Результат"
-    gist:
-      success: "Gist успешно сохранен"
-      failure: "Во время сохранения gist произошла ошибка"
     show:
       in_progress_header: "Выполнение теста %{title}"
       next: "Далее"
@@ -127,6 +124,12 @@ ru:
       question_count: "Кол-во вопросов"
     start:
       start: "Поехали!"
+
+  gists:
+    create:
+      success: "Gist успешно сохранен"
+      failure: "Во время сохранения gist произошла ошибка"
+      link: "Здесь"
 
   tests_mailer:
     completed_test:

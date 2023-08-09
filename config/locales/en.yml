@@ -139,9 +139,6 @@ en:
       test_passed: "Test completed successfully!"
       test_failed: "Test is failed!"
       score: "Score"
-    gist:
-      success: "Gist was successfully created!"
-      failure: "An error occurred while saving gist"
     show:
       in_progress_header: "Passing %{title} test"
       next: "Next"
@@ -158,6 +155,12 @@ en:
       question_count: "Question count"
     start:
       start: "Let's go!"
+
+  gists:
+    create:
+      success: "Gist was successfully created!"
+      failure: "An error occurred while saving gist"
+      link: "Here"
 
   tests_mailer:
     completed_test:
