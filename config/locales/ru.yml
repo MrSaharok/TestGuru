@@ -129,7 +129,7 @@ ru:
     create:
       success: "Gist успешно сохранен"
       failure: "Во время сохранения gist произошла ошибка"
-      link: "Здесь"
+      link: "Ссылка"
 
   tests_mailer:
     completed_test:

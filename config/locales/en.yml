@@ -160,7 +160,7 @@ en:
     create:
       success: "Gist was successfully created!"
       failure: "An error occurred while saving gist"
-      link: "Here"
+      link: "link"
 
   tests_mailer:
     completed_test:
