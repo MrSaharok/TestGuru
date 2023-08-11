@@ -82,6 +82,13 @@ ru:
       destroy:
         success: "Ответ удален"
 
+    gists:
+      index:
+        gist_list_header: "Список gist"
+        question: "Вопрос"
+        url: "Ссылка"
+        email: "Email автора"
+
   general:
     errors: "Ошибки"
     back: "Назад"
@@ -93,6 +100,7 @@ ru:
     unauthorized: "Нет прав для просмотра этой страницы"
     welcome_flash: "Привет, %{first_name}!"
     management: "Управление"
+    gist_list: "Список gist"w
 
   test_passings:
     result:
@@ -103,6 +111,7 @@ ru:
     show:
       in_progress_header: "Выполнение теста %{title}"
       next: "Далее"
+      gist_question: "Сохранить как gist"
     update:
       test_completed: "Тест окончен!"
 
@@ -116,6 +125,16 @@ ru:
     start:
       start: "Поехали!"
 
+  gists:
+    create:
+      success: "Gist успешно сохранен"
+      failure: "Во время сохранения gist произошла ошибка"
+      link: "Ссылка"
+
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест на TestGuru!"
+
+  services:
+    gist:
+      description: "Вопрос %{title} от TestGuru"
