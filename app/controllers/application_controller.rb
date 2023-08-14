@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!, :set_locale
+  before_action :configure_sign_up_params, if: :devise_controller?
 
   def default_url_options
     return {} if request.params[:lang] == I18n.locale
