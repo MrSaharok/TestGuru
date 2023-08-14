@@ -74,6 +74,8 @@ en:
         success: "Test has been updated"
       destroy:
         success: "Test deleted"
+      form_inline:
+        submit: "OK"
 
     questions:
       question:
@@ -141,6 +143,7 @@ en:
       score: "Score"
     show:
       in_progress_header: "Passing %{title} test"
+      questions_progress: "Question %{current} out of %{total}"
       next: "Next"
       gist_question: "Gist Question"
     update:

@@ -43,6 +43,8 @@ ru:
         success: "Тест изменен"
       destroy:
         success: "Тест удален"
+      form_inline:
+        submit: "OK"
 
     questions:
       question:
@@ -110,6 +112,7 @@ ru:
       score: "Результат"
     show:
       in_progress_header: "Выполнение теста %{title}"
+      questions_progress: "Вопрос %{current} из %{total}"
       next: "Далее"
       gist_question: "Сохранить как gist"
     update:
