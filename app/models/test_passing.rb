@@ -28,6 +28,10 @@ class TestPassing < ApplicationRecord
     test.questions.order(:id).where('id < ?', current_question.id).size + 1
   end
 
+  def current_progress_percents
+    @test_passing.current_question_number / @test_passing.test.questions.size.to_f * 100
+  end
+
   private
 
   def before_validation_set_question
