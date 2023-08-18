@@ -1,5 +1,6 @@
 <h1><%= t('tests.index.test_list_header') %></h1>
 
+<%= render 'shared/errors', resource: @test %>
 <p>
   <%= link_to t('.create'), new_admin_test_path %>
 </p>

@@ -7,8 +7,11 @@ import "channels"
 import 'bootstrap'
 import { Tooltip, Popover } from "bootstrap"
 import 'bootstrap-icons/font/bootstrap-icons.css'
+import 'jquery'
 import '../utilities/sorting'
 import '../utilities/password'
+import '../utilities/form_inline'
+import '../utilities/progressBar'
 
 // The stylesheet location we created earlier
 require("../stylesheets/application.css")
