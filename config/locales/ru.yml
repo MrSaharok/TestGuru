@@ -70,7 +70,7 @@ ru:
         correct: "Правильный"
         answer_text: "Текст ответа"
       edit:
-        edit_header: "Редактировать вопрос"
+        edit_header: "Редактировать ответ"
       new:
         add_answer: "Добавить ответ"
       show:
@@ -102,7 +102,8 @@ ru:
     unauthorized: "Нет прав для просмотра этой страницы"
     welcome_flash: "Привет, %{first_name}!"
     management: "Управление"
-    gist_list: "Список gist"w
+    gist_list: "Список gist"
+    feedback: "Обратная связь"
 
   test_passings:
     result:
@@ -141,3 +142,12 @@ ru:
   services:
     gist:
       description: "Вопрос %{title} от TestGuru"
+
+  feedbacks:
+    new:
+      header: "Создать сообщение"
+    form:
+      feedback: "Ваше сообщение"
+      submit: "Отправить"
+    create:
+      send_message: "Сообщение отправлено"

@@ -1,0 +1,16 @@
+<%= form_with model: @feedback, local: true do |f| %>
+  <%= render 'shared/errors', resource: @feedback %>
+  <div class="form-group">
+    <p>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </p>
+    <p>
+      <%= f.label :body, t('.feedback') %>
+      <%= f.text_area :body, rows: 7, cols: 60 %>
+    </p>
+    <p>
+      <%= f.submit t('.submit'), class: 'btn btn-primary btn-lg' %>
+    </p>
+<% end %>
+</div>

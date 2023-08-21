@@ -2,14 +2,14 @@
 
 <p><%= @test_passing.current_question.body %></p>
 
+<%= render 'shared/errors', resource: @test_passing %>
+
 <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100">
   <%= content_tag :div, nil, class: 'progress-bar overflow-visible bg-primary',
                   data: { progress_percent: current_progress_percents } do %>
     <%= t('.questions_progress', current: @test_passing.current_question_number, total: @test_passing.test.questions.size) %>
   <% end %>
 </div>
-
-<%= render 'shared/errors', resource: @test_passing %>
 
 <%= form_with url: test_passing_path(@test_passing), local: true, data: { turbo: false }, method: :put do |form| %>
   <%= form.collection_check_boxes :answer_ids, @test_passing.current_question.answers, :id, :body do |b| %>

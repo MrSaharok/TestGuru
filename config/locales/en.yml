@@ -98,12 +98,12 @@ en:
       answer:
         confirm_delete: "Delete answer?"
       form:
-          correct: "Correct"
-          answer_text: "Answer text"
+        correct: "Correct"
+        answer_text: "Answer text"
       edit:
-          edit_header: "Edit question"
+        edit_header: "Edit answer"
       new:
-          add_answer: "Add answer"
+        add_answer: "Add answer"
       show:
         question_header: "Question"
         answer: "Answer"
@@ -134,6 +134,7 @@ en:
     welcome_flash: "Welcome, %{first_name}!"
     management: "Management"
     gist_list: "Gist list"
+    feedback: "Feedback"
 
   test_passings:
     result:
@@ -172,3 +173,12 @@ en:
   services:
     gist:
       description: "A questions about %{title} from TestGuru"
+
+  feedbacks:
+    new:
+      header: "Create a message"
+    form:
+      feedback: "Your message"
+      submit: "Send"
+    create:
+      send_message: "The message has been sent"
