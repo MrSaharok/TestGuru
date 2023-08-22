@@ -38,7 +38,7 @@ gem 'jbuilder'
 #gem "bcrypt", "~> 3.1.7"
 
 gem 'devise'
-
+gem 'faraday-retry'
 gem 'rails-i18n'
 
 #UI
