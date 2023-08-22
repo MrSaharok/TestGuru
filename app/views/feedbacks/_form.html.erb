@@ -1,6 +1,5 @@
 <%= form_with model: @feedback, local: true do |f| %>
   <%= render 'shared/errors', resource: @feedback %>
-  <div class="form-group">
     <p>
       <%= f.label :email %>
       <%= f.text_field :email %>
@@ -13,4 +12,3 @@
       <%= f.submit t('.submit'), class: 'btn btn-primary btn-lg' %>
     </p>
 <% end %>
-</div>
