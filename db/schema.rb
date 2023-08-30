@@ -12,6 +12,8 @@
 
 ActiveRecord::Schema.define(version: 2023_07_26_416231) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "adminpack"
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
@@ -49,7 +51,7 @@ ActiveRecord::Schema.define(version: 2023_07_26_416231) do
   create_table "test_passings", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "test_id", null: false
-    t.integer "current_question_id"
+    t.bigint "current_question_id"
     t.integer "correct_questions", default: 0
     t.index ["current_question_id"], name: "index_test_passings_on_current_question_id"
     t.index ["test_id"], name: "index_test_passings_on_test_id"
