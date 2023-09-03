@@ -1,4 +1,4 @@
-class GistQuestionService
+class GistQuestionsService
 
   def initialize(question, client: http_client)
     @question = question

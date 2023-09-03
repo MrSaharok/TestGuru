@@ -1,7 +1,7 @@
 class GistsController < ApplicationController
 
   def create
-    result = GistQuestionService.new(@test_passing.current_question).call
+    result = GistQuestionsService.new(@test_passing.current_question).call
 
     flash_options = if result.success?
                       Gist.create!(
