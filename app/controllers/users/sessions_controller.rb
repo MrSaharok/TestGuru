@@ -1,4 +1,4 @@
-class Users::SessionsController < Devise::RegistrationsController
+class Users::SessionsController < Devise::SessionsController
 
   after_action :set_welcome_flash, only: :create
 
