@@ -13,6 +13,6 @@ module TestGuru
     config.time_zone = 'Krasnoyarsk'
     config.i18n.default_locale = :ru
 
-    config.autoload_paths << "#{Rails.root}/lib/clients"
+    #config.autoload_paths << "#{Rails.root}/lib/clients"
   end
 end

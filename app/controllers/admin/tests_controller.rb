@@ -1,7 +1,7 @@
 class Admin::TestsController < Admin::BaseController
 
   before_action :find_tests, only: %i[index update_inline]
-  before_action :find_test, only: %i[show destroy edit update]
+  before_action :find_test, except: %i[index new create]
 
   def index; end
 
