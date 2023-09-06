@@ -182,3 +182,9 @@ en:
       submit: "Send"
     create:
       send_message: "The message has been sent"
+  hello: "Hello."
+  remember_password: "Forgot your password?"
+  confirmation_instructions: "Didn't receive confirmation instructions?"
+  unlock_instructions: "Didn't receive unlock instructions?"
+  sign_with: "Sign in with %{resource}"
+  completed_test: "TestGuru. You have completed the test %{test}"

@@ -2,18 +2,19 @@ class GistQuestionsService
 
   def initialize(question, client: http_client)
     @question = question
-    @test = @question.test
+    @test_title = question.test.title
     @client = client
   end
 
   def call
-    @client.create_gist(gist_params).yield_self { |response| retrieve_url response }
+    @client.create_gist(params).yield_self { |response| retrieve_url response }
+  rescue Octokit::Unauthorized => _e
     OpenStruct.new(success?: false)
   end
 
   private
 
-  def gist_params
+  def params
     {
       description: t('services.gist.description',title: @test.title),
       files: {
@@ -32,7 +33,7 @@ class GistQuestionsService
   end
 
   def gist_content
-    [@question.body, *@question.answers.pluck(:body)].join("\n")
+    ([@question.body] + @question.answers.pluck(:body)).join("\n")
   end
 
   def http_client

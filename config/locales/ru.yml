@@ -151,3 +151,9 @@ ru:
       submit: "Отправить"
     create:
       send_message: "Сообщение отправлено"
+  hello: "Добрый день."
+  remember_password: "Забыли свой пароль?"
+  confirmation_instructions: "Не получили инструкций по подтверждению?"
+  unlock_instructions: "Не получили инструкции по разблокировке?"
+  sign_with: "Войдите в систему с помощью %{resource}"
+  completed_test: "TestGuru. Вы прошли тест %{test}"

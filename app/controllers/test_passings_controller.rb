@@ -1,7 +1,6 @@
 class TestPassingsController < ApplicationController
 
-  before_action :authenticate_user!
-  before_action :set_test_passing, only: %i[show update result]
+  before_action :set_test_passing
 
   def show; end
 

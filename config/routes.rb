@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   end
 
   resources :gists, only: :create
-
   resources :feedback, only: %i[new create]
 
   namespace :admin do
