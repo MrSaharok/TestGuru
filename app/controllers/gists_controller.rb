@@ -2,7 +2,7 @@ class GistsController < ApplicationController
 
   def create
     @test_passing = TestPassing.find(params[:test_passing_id])
-    result = GistQuestionsService.new(@test_passing.current_question).call
+    result = GistQuestionService.new(@test_passing.current_question).call
 
     flash_options = if result.success?
                       Gist.create!(

@@ -119,7 +119,7 @@ en:
       index:
         question: "Question"
         url: "URL"
-        email: "Author email"
+        email: "Author"
         gist_list_header: "Gist List"
 
   general:

@@ -89,7 +89,7 @@ ru:
         gist_list_header: "Список gist"
         question: "Вопрос"
         url: "Ссылка"
-        email: "Email автора"
+        email: "Автор"
 
   general:
     errors: "Ошибки"
