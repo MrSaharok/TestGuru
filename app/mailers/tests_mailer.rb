@@ -1,5 +1,4 @@
 class TestsMailer < ApplicationMailer
-
   def completed_test(test_passing)
     @user = test_passing.user
     @test_passing = test_passing

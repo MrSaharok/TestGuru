@@ -17,7 +17,7 @@ class TestPassing < ApplicationRecord
   end
 
   def success?
-    result  >= SUCCESS_RATE
+    result >= SUCCESS_RATE
   end
 
   def result

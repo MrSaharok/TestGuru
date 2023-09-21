@@ -1,5 +1,4 @@
 class GistQuestionService
-
   def initialize(question, client: http_client)
     @question = question
     @test_title = question.test.title
@@ -16,7 +15,7 @@ class GistQuestionService
 
   def params
     {
-      'description': t('services.gist.description',title: @test.title),
+      'description': t('services.gist.description', title: @test.title),
       'public': true,
       'files': {
         'test-guru-question.txt': {

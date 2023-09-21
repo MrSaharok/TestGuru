@@ -1,5 +1,4 @@
 class TestPassingsController < ApplicationController
-
   before_action :set_test_passing
 
   def show; end
@@ -8,12 +7,12 @@ class TestPassingsController < ApplicationController
 
   def update
     @test_passing.accept!(params[:answer_ids])
-     if @test_passing.completed?
-       TestsMailer.completed_test(@test_passing).deliver_now
-       redirect_to result_test_passing_path(@test_passing), notice: t('.test_completed')
-     else
-       render :show
-     end
+    if @test_passing.completed?
+      TestsMailer.completed_test(@test_passing).deliver_now
+      redirect_to result_test_passing_path(@test_passing), notice: t('.test_completed')
+    else
+      render :show
+    end
   end
 
   private

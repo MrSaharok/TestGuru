@@ -1,5 +1,4 @@
 class FeedbacksMailer < ApplicationMailer
-
   def send_message(body, from)
     @email = from
     @body = body

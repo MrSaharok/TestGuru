@@ -1,5 +1,4 @@
 class Admin::QuestionsController < Admin::BaseController
-
   before_action :find_test, only: %i[create new]
   before_action :find_question, only: %i[show destroy edit update]
 
@@ -38,6 +37,7 @@ class Admin::QuestionsController < Admin::BaseController
   def find_test
     @test = Test.find(params[:test_id])
   end
+
   def find_question
     @question = Question.find(params[:id])
   end
