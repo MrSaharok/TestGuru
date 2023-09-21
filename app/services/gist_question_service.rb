@@ -15,7 +15,7 @@ class GistQuestionService
 
   def params
     {
-      'description': t('services.gist.description', title: @test.title),
+      'description': @test_title,
       'public': true,
       'files': {
         'test-guru-question.txt': {

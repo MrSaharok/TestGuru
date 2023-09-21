@@ -139,10 +139,6 @@ ru:
     completed_test:
       subject: "Вы успешно завершили тест на TestGuru!"
 
-  services:
-    gist:
-      description: "Вопрос %{title} от TestGuru"
-
   feedbacks:
     new:
       header: "Создать сообщение"

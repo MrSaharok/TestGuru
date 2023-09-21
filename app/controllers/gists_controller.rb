@@ -4,7 +4,7 @@ class GistsController < ApplicationController
     result = GistQuestionService.new(@test_passing.current_question).call
 
     flash_options = if result.success?
-                      Gist.create!(
+                      Gist.create(
                         author_email: current_user.email,
                         github_url: result.url,
                         question: @test_passing.current_question
