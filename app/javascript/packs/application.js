@@ -13,7 +13,7 @@ import '../utilities/password'
 import '../utilities/form_inline'
 import '../utilities/progressBar'
 
-require("../stylesheets/application.scss")
+require("../stylesheets/application.css")
 
 Rails.start()
 Turbolinks.start()
