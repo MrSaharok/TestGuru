@@ -3,7 +3,7 @@ require("@popperjs/core")
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
-import "controllers"
+import 'channels'
 import 'bootstrap'
 import { Tooltip, Popover } from "bootstrap"
 import 'bootstrap-icons/font/bootstrap-icons.css'
