@@ -126,6 +126,7 @@ ru:
       test_list_header: "Список тестов"
       title: "Название"
       question_count: "Кол-во вопросов"
+      level: "Уровень"
     start:
       start: "Поехали!"
 

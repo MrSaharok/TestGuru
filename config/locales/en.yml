@@ -157,6 +157,7 @@ en:
       test_list_header: "Test list"
       title: "Title"
       question_count: "Question count"
+      level: "Level"
     start:
       start: "Let's go!"
 
