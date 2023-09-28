@@ -32,7 +32,7 @@ gem 'psych', '< 4'
 gem 'rails-i18n'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-gem 'bootstrap'
+gem 'bootstrap', '~> 4.0.0.beta'
 gem 'jquery-rails'
 gem 'octokit', '~> 6.1'
 
