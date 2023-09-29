@@ -7,11 +7,11 @@ ruby '3.2.2'
 gem 'rails', '~> 6.1.7'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem 'autoprefixer-rails', '8.6.5'
+gem 'autoprefixer-rails', '>= 9.1.0'
 gem 'faraday-retry'
 gem 'pg'
 gem 'sprockets-rails'
-gem 'webpacker', '~> 5.4', '>= 5.4.4'
+gem 'webpacker'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -32,7 +32,7 @@ gem 'psych', '< 4'
 gem 'rails-i18n'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-gem 'bootstrap', '~> 4.0.0.beta'
+gem 'bootstrap', '~> 5.3.1'
 gem 'jquery-rails'
 gem 'octokit', '~> 6.1'
 

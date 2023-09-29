@@ -1,4 +1,3 @@
-console.log('asfafsafs')
 document.addEventListener('turbolinks:load', () => {
     const tableHeaders = document.querySelectorAll('th.sortable')
 
