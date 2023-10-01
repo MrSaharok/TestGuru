@@ -9,7 +9,7 @@ class GistsController < ApplicationController
                         github_url: result.url,
                         question: @test_passing.current_question
                       )
-                      { notice: t('.success', link: view_context.link_to(t('.link'), result.url, target: '_blank')) }
+                      { notice: "#{t(".success")} #{view_context.link_to(t('.link'), result.url, target: '_blank')}" }
                     else
                       { alert: t('.failure') }
                     end

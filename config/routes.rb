@@ -14,11 +14,9 @@ Rails.application.routes.draw do
   end
 
   resources :gists, action: :create
-  resources :feedback, action: %i[new create]
+  resources :feedback, only: %i[create new]
 
   namespace :admin do
-    resources :gists, only: :index
-
     resources :tests do
       patch :update_inline, on: :member
 
@@ -26,5 +24,6 @@ Rails.application.routes.draw do
         resources :answers, shallow: true, except: %i[index]
       end
     end
+    resources :gists, only: :index
   end
 end

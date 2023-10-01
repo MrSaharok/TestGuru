@@ -33,6 +33,9 @@ ru:
       test:
         confirm_delete: "Удалить тест?"
       index:
+        title: "Название"
+        question_count: "Кол-во вопросов"
+        level: "Уровень"
         actions: "Действия"
         create: "Создать тест"
       show:
@@ -134,23 +137,30 @@ ru:
     create:
       success: "Gist успешно сохранен"
       failure: "Во время сохранения gist произошла ошибка"
-      link: "Ссылка"
+      link: "Ссылка на gist"
 
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест на TestGuru!"
 
-  feedbacks:
+  feedback:
     new:
       header: "Создать сообщение"
-    form:
       feedback: "Ваше сообщение"
-      submit: "Отправить"
     create:
-      send_message: "Сообщение отправлено"
+      send_message: "Спасибо, что написали!"
+  feedback_submit: "Сообщение отправлено"
   hello: "Добрый день."
   remember_password: "Забыли свой пароль?"
   confirmation_instructions: "Не получили инструкций по подтверждению?"
   unlock_instructions: "Не получили инструкции по разблокировке?"
   sign_with: "Войдите в систему с помощью %{resource}"
   completed_test: "TestGuru. Вы прошли тест %{test}"
+  devise:
+    registrations:
+      new:
+        first_name: "Имя"
+        last_name: "Фамилия"
+        email: "Электронная почта"
+        password: "Пароль"
+        password_confirm: "Подтверждение пароля"

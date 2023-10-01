@@ -1,9 +1,19 @@
-<li>
-  <%= answer.body %><br>
-  <%= link_to t('admin.actions.show'), admin_answer_path(answer) %>
-  <%= link_to t('admin.actions.edit'), edit_admin_answer_path(answer) %>
-  <%= link_to t('admin.actions.delete'),
-              admin_answer_path(answer),
-              method: :delete,
-              data: { confirm: t('.confirm_delete') } %>
-</li>
+<tr>
+  <td><%= answer.body %></td>
+  <td>
+    <div class="d-flex justify-content-end">
+      <%= link_to admin_answer_path(answer), class: 'btn' do %>
+        <%= content_tag :i, nil, class: 'bi bi-eye' %>
+        <%= t('admin.actions.show') %>
+      <% end %>
+      <%= link_to edit_admin_answer_path(answer), class: 'btn' do %>
+        <%= content_tag :i, nil, class: 'bi bi-pencil' %>
+        <%= t('admin.actions.edit') %>
+      <% end %>
+      <%= link_to admin_answer_path(answer), method: :delete, class: 'btn', data: { confirm: t('.confirm_delete') } do %>
+        <%= content_tag :i, nil, class: 'bi bi-trash' %>
+      <%= t('admin.actions.delete') %>
+      <% end %>
+    </div>
+  </td>
+</tr>

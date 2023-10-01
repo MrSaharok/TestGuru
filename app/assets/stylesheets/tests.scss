@@ -1,3 +1,11 @@
 .pointer {
     cursor: pointer;
 }
+
+.arr-up:before {
+    content: '\2191';
+}
+
+.arr-down:before {
+    content: '\2193';
+}

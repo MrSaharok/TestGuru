@@ -1,8 +1,5 @@
 <h1><%= t('.add_answer') %></h1>
 
-<p>
-  <%= @question.body %>
-</p>
+<p><%= @question.body %></p>
 
 <%= render 'form' %>
-<%= link_to t('general.back'), admin_question_path(@question) %>

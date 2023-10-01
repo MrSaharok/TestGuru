@@ -3,14 +3,14 @@ document.addEventListener('turbolinks:load', () => {
 
     if (tableHeaders.length !== 0) {
         let table = tableHeaders[0].closest('table')
-        let tableSorting = new Sorting(table)
+        let tableSorting = new TableHeaderSorting(table)
         tableHeaders.forEach(header =>
             header.addEventListener('click', tableSorting.listen.bind(tableSorting))
         )
     }
 })
 
-class Sorting {
+class TableHeaderSorting {
 
     hideClass = 'd-none'
     sort = {

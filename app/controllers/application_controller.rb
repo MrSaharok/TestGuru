@@ -3,9 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_sign_up_params, if: :devise_controller?
 
   def default_url_options
-    return {} if request.params[:lang] == I18n.locale
-
-    { lang: I18n.locale }
+    { lang: (I18n.locale if I18n.locale != I18n.default_locale) }
   end
 
   def alert_messages_for(entity)

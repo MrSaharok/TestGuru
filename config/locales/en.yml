@@ -64,6 +64,9 @@ en:
       test:
         confirm_delete: "Delete test?"
       index:
+        title: "Title"
+        question_count: "Question count"
+        level: "Level"
         actions: "Actions"
         create: "Create test"
       show:
@@ -165,23 +168,30 @@ en:
     create:
       success: "Gist was successfully created!"
       failure: "An error occurred while saving gist"
-      link: "link"
+      link: "link to gist"
 
   tests_mailer:
     completed_test:
       subject: "You just completed the TestGuru test!"
 
-  feedbacks:
+  feedback:
     new:
       header: "Create a message"
-    form:
       feedback: "Your message"
-      submit: "Send"
     create:
-      send_message: "The message has been sent"
+      send_message: "Thank you for your feedback!"
+  feedback_submit: "The message has been sent"
   hello: "Hello."
   remember_password: "Forgot your password?"
   confirmation_instructions: "Didn't receive confirmation instructions?"
   unlock_instructions: "Didn't receive unlock instructions?"
   sign_with: "Sign in with %{resource}"
   completed_test: "TestGuru. You have completed the test %{test}"
+  devise:
+    registrations:
+      new:
+        first_name: "Frist name"
+        last_name: "Last name"
+        email: "Email"
+        password: "Password"
+        password_confirm: "Password confirmation"

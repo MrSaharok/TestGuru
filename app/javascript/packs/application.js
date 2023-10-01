@@ -8,13 +8,11 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import 'channels'
+import 'jquery'
 import 'bootstrap'
-import 'bootstrap-sprockets'
-import 'bootstrap/dist/js/bootstrap.bundle'
 import { Tooltip, Popover } from "bootstrap"
 import 'bootstrap-icons/font/bootstrap-icons.css'
-import 'jquery'
-import '../utilities/sorting'
+import '../utilities/tableHeaderSorting'
 import '../utilities/password'
 import '../utilities/form_inline'
 import '../utilities/progressBar'

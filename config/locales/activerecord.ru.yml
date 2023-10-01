@@ -26,6 +26,8 @@ ru:
         first_name: "Имя"
         last_name: "Фамилия"
         password: "Пароль"
+        password_confirmation: "Пароль ещё раз"
+        characters_minimum: "(6 символов минимум)"
 
     errors:
       messages:
