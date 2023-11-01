@@ -1,38 +1,29 @@
-document.addEventListener('turbolinks:load', () => {
-    const form = document.querySelector('#new_user')
+document.addEventListener('turbolinks:load', function() {
+    const control = document.querySelector('#new_user')
 
-    if (form) {
-        new Password(form).listen()
-    }
+    if (control) { control.addEventListener('input', new PasswordValidation(control).validatePasswords) }
 })
 
-class Password {
+class PasswordValidation {
 
-    constructor(form) {
-        this.form = form
-        this.password = document.getElementById('password')
-        this.confirmation = document.getElementById('password-confirmation')
-        this.error = document.getElementById('confirmation-alert')
+    constructor() {
+        this.password = document.getElementById('user_password');
+        this.confirmPassword = document.getElementById('user_password_confirmation');
+        this.error = document.getElementById('confirmation-alert');
     }
 
-    listen = () => {
-        this.form.addEventListener('input', this.passwordValidate.bind(this))
-    }
+    validatePasswords = () => {
 
-    passwordValidate = () => {
-        if (!this.confirmation.value) {
-            this.error.textContent = ''
-            return
-        }
-
-        if (this.confirmation.value !== this.password.value) {
-            this.error.classList.remove('text-success')
-            this.error.classList.add('text-danger')
-            this.error.textContent = 'Passwords do not match'
-        } else {
-            this.error.classList.remove('text-danger')
-            this.error.classList.add('text-success')
-            this.error.textContent = 'Passwords match'
+        if (!this.confirmPassword.value) {
+            this.error.textContent = '';
+        } else if (this.password.value === this.confirmPassword.value) {
+            this.error.classList.add('text-success');
+            this.error.classList.remove('text-danger');
+            this.error.textContent = 'Пароли совпадают!';
+        } else if (this.password.value !== this.confirmPassword.value) {
+            this.error.classList.add('text-danger');
+            this.error.classList.remove('text-success');
+            this.error.textContent = 'Пароли не совпадают!';
         }
     }
 }

@@ -1,9 +1,8 @@
 class TestsMailer < ApplicationMailer
-
   def completed_test(test_passing)
     @user = test_passing.user
-    @test = test_passing.test
+    @test_passing = test_passing
 
-    mail to: @user.email,subject: t('test_complited', test: @test_passing.test.title)
+    mail to: @user.email, subject: t('completed_test', test: @test_passing.test.title)
   end
 end

@@ -1,6 +1,7 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center mt-3">
   <div class="col col-md-4">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'text-center' }) do |f| %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name),
+                 html: { class: 'text-center', id: 'login' }) do |f| %>
       <div class="form-group">
         <%= image_tag 'logo.png' %>
         <h1><%= t('general.login') %></h1>
@@ -30,7 +31,8 @@
         </div>
       </div>
     <% end %>
-
-    <%= render "devise/shared/links" %>
+    <div class="mt-1">
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
 </div>

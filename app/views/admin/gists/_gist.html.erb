@@ -1,9 +1,9 @@
 <tr>
   <td>
-    <%= link_to truncate(gist.question.body, length: 25), admin_question_path(gist.question) %>
+    <%= link_to truncate(gist.question.body), admin_question_path(gist.question), target: "_blank" %>
   </td>
   <td>
-    <%= link_to 'Gist URL', gist.github_url %>
+    <%= link_to t("admin.gists.index.url"), gist.github_url, target: "_blank" %>
   </td>
   <td><%= gist.author_email %></td>
 </tr>

@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-
   root 'tests#index'
 
-  devise_for :users, path_names: { sign_in: :login, sign_out: :logout }, controllers: { sessions: 'users/sessions' }
+  devise_for :users, path_names: { sign_in: :login, sign_out: :logout }, controllers: { sessions: 'sessions' }
 
   resources :tests, only: :index do
     member { post :start }
@@ -14,11 +13,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :gists, only: :create
+  resources :gists, action: :create
+  resources :feedback, only: %i[create new]
 
   namespace :admin do
-    resources :gists, only: :index
-
     resources :tests do
       patch :update_inline, on: :member
 
@@ -26,5 +24,6 @@ Rails.application.routes.draw do
         resources :answers, shallow: true, except: %i[index]
       end
     end
+    resources :gists, only: :index
   end
 end

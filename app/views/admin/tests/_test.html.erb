@@ -1,15 +1,17 @@
 <tr>
-  <td>
+  <td class="align-middle column">
     <%= content_tag :span, test.title, class: 'test-title', data: { test_id: test.id } %>
     <%= render 'form_inline', test: test == @test ? @test : test %>
   </td>
-  <td><%= test.questions.count %></td>
-  <td><%= link_to t('admin.actions.show'), admin_test_path(test) %></td>
-  <td><%= link_to t('admin.actions.edit'),
-                  edit_admin_test_path(test),
-                  class: 'form-inline-link',
-                  data: { test_id: test.id } %></td>
-  <td><%= link_to t('admin.actions.delete'),
+  <td class="align-middle"><%= test.questions.count %></td>
+  <td class="align-middle"><%= test.level %></td>
+  <td class="text-center"><%= link_to t('admin.actions.show'), admin_test_path(test) %></td>
+  <td class="text-center"><%= link_to t('admin.actions.edit'),
+                                      edit_admin_test_path(test),
+                                      data: { test_id: test.id },
+                                      class: 'form-inline-link' %>
+  </td>
+  <td class="text-center"><%= link_to t('admin.actions.delete'),
                   admin_test_path(test),
                   method: :delete,
                   data: { confirm: t('.confirm_delete') } %>

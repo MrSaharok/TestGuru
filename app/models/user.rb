@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-
   devise :database_authenticatable,
          :registerable,
          :recoverable,
@@ -12,6 +11,7 @@ class User < ApplicationRecord
   has_many :test_passings, dependent: :destroy
   has_many :tests, through: :test_passings, dependent: :destroy
   has_many :gists, dependent: :destroy
+  has_many :feedbacks, dependent: :delete_all
 
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true
   validates :first_name, presence: true

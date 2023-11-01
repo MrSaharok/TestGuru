@@ -1,25 +1,36 @@
-<h1><%= t('.in_progress_header', title: @test_passing.test.title) %></h1>
+<%= render 'shared/errors', resource: @test_passing %>
 
-<p><%= @test_passing.current_question.body %></p>
+<h3 class="mb-2"><%= t('.in_progress_header', title: @test_passing.test.title) %></h3>
 
-<div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+<div class="progress mb-5" role="progressbar" aria-valuemin="0" aria-valuemax="100">
   <%= content_tag :div, nil, class: 'progress-bar overflow-visible bg-primary',
                   data: { progress_percent: current_progress_percents } do %>
     <%= t('.questions_progress', current: @test_passing.current_question_number, total: @test_passing.test.questions.size) %>
   <% end %>
 </div>
 
-<%= render 'shared/errors', resource: @test_passing %>
+<div class="mb-3">
+  <p class="fs-3"><%= @test_passing.current_question.body %></p>
+</div>
 
-<%= form_with url: test_passing_path(@test_passing), local: true, data: { turbo: false }, method: :put do |form| %>
-  <%= form.collection_check_boxes :answer_ids, @test_passing.current_question.answers, :id, :body do |b| %>
-
-    <p>
-      <%= b.check_box id: "answer_ids_#{b.object.id}" %>
-      <%= b.label %>
-    </p>
+<%= form_with url: test_passing_path(@test_passing), local: true, method: :put,
+              html: { id: 'attempt' } do |form| %>
+  <%= form.collection_check_boxes :answer_ids, @test_passing.current_question.answers, :id, :body do |a| %>
+    <div class="form-check m-3">
+      <%= a.check_box id: "answer_id_#{a.object.id}", class: 'form-check-input' %>
+      <%= a.label(class: 'form-check-label') %>
+    </div>
   <% end %>
 
-  <p><%= link_to t('.gist_question'), gist_test_passing_path(@test_passing), method: :post %></p>
-  <p><%= form.submit t('.next') %></p>
+  <div class="mt-5">
+    <%= button_tag class: 'btn btn-primary btn-lg' do %>
+      <%= content_tag :i, nil, class: 'bi bi-arrow-return-right' %>
+      <%= t('.next') %>
+    <% end %>
+
+    <%= link_to gists_path(test_passing_id: @test_passing.id), method: :post, class: 'btn btn-lg' do %>
+      <%= content_tag :i, nil, class: 'bi bi-github' %>
+      <%= t('.gist_question') %>
+    <% end %>
+  </div>
 <% end %>

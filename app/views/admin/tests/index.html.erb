@@ -1,14 +1,36 @@
 <h1><%= t('tests.index.test_list_header') %></h1>
 
 <%= render 'shared/errors', resource: @test %>
-<p>
-  <%= link_to t('.create'), new_admin_test_path %>
-</p>
-<table>
+<table class="table table-borderless table-hover align-middle ms-5">
   <tr>
-    <th><%= t('tests.index.title') %></th>
-    <th><%= t('tests.index.question_count') %></th>
-    <th colspan="4"><%= t('.actions') %></th>
+    <th class="pointer sortable">
+      <%= t('.title') %>
+      <div class="float-end">
+        <%= content_tag :i, nil, class: 'arr-up d-none sort-asc' %>
+        <%= content_tag :i, nil, class: 'arr-down d-none sort-desc' %>
+      </div>
+    </th>
+    <th class="pointer sortable">
+      <%= t('.question_count') %>
+      <div class="float-end">
+        <%= content_tag :i, nil, class: 'arr-up d-none sort-asc' %>
+        <%= content_tag :i, nil, class: 'arr-down d-none sort-desc' %>
+      </div>
+    </th>
+    <th class="pointer sortable">
+      <%= t('.level') %>
+      <div class="float-end">
+        <%= content_tag :i, nil, class: 'arr-up d-none sort-asc' %>
+        <%= content_tag :i, nil, class: 'arr-down d-none sort-desc' %>
+      </div>
+    </th>
+    <th colspan="3" class="text-center"><%= t('.actions') %></th>
   </tr>
   <%= render @tests %>
 </table>
+<div>
+  <%= link_to  new_admin_test_path, class: 'btn btn-lg' do %>
+    <%= content_tag :i, nil, class: 'bi bi-plus-circle' %>
+    <%= t('.create') %>
+  <% end %>
+</div>
