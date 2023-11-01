@@ -31,11 +31,11 @@ class TestPassing < ApplicationRecord
   end
 
   def time_to_finish
-    (created_at + test.timer.seconds).iso8601
+    (created_at + test.timer).iso8601
   end
 
   def time_over?
-    created_at + test.timer.seconds < Time.now
+    created_at + test.timer < Time.now
   end
 
   private

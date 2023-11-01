@@ -18,7 +18,7 @@ class Timer {
 
             if (this.timer) {
                 this.timer -= 1
-                this.timerInSec.innerText = `Seconds left - ${this.timer}`
+                this.timerInSec.innerText = `Осталось времени - ${this.timer}сек`
             } else {
                 document.querySelector('form#attempt').submit()
                 clearInterval(intervalId)
