@@ -69,6 +69,7 @@ en:
         level: "Level"
         actions: "Actions"
         create: "Create test"
+        timer: "Time to complete(seconds)"
       show:
         create: "Create question"
       create:
@@ -145,6 +146,7 @@ en:
       test_passed: "Test completed successfully!"
       test_failed: "Test is failed!"
       score: "Score"
+      time_over: 'Time over!'
     show:
       in_progress_header: "Passing %{title} test"
       questions_progress: "Question %{current} out of %{total}"
@@ -161,6 +163,7 @@ en:
       title: "Title"
       question_count: "Question count"
       level: "Level"
+      timer: "Time to complete(seconds)"
     start:
       start: "Let's go!"
 

@@ -9,6 +9,7 @@
   <% end %>
 </div>
 
+
 <div class="mb-3">
   <p class="fs-3"><%= @test_passing.current_question.body %></p>
 </div>
@@ -20,6 +21,12 @@
       <%= a.check_box id: "answer_id_#{a.object.id}", class: 'form-check-input' %>
       <%= a.label(class: 'form-check-label') %>
     </div>
+  <% end %>
+
+  <% if @test_passing.test.timer %>
+    <%= content_tag :div, nil, id: 'seconds',
+                    data: { limit: @test_passing.test.timer },
+                    class: 'text-center fs-3'%>
   <% end %>
 
   <div class="mt-5">
