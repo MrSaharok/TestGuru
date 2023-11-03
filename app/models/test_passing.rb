@@ -8,10 +8,12 @@ class TestPassing < ApplicationRecord
   before_validation :before_validation_set_question, on: %i[create update]
 
   def completed?
+    return true if time_over?
     current_question.nil?
   end
 
   def accept!(answer_ids)
+    return if time_over?
     self.correct_questions += 1 if correct_answer?(answer_ids)
     save!
   end
@@ -26,6 +28,14 @@ class TestPassing < ApplicationRecord
 
   def current_question_number
     test.questions.order(:id).where('id < ?', current_question.id).size + 1
+  end
+
+  def time_to_finish
+    (created_at + test.timer).iso8601
+  end
+
+  def time_over?
+    created_at + test.timer < Time.now
   end
 
   private

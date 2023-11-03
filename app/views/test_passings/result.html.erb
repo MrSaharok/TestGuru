@@ -4,6 +4,7 @@
   <p><%= t('.test_passed')%></p>
   <p><%= t('.score') %>: <span class="passed"><%= @test_passing.result %>%</span></p>
 <% else %>
+  <%= t('.time_over') if @test_passing.time_over? %>
   <p><%= t('.test_failed') %></p>
   <p><%= t('.score') %>: <span class="failed"><%= @test_passing.result %>%</span></p>
 <% end %>

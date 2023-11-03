@@ -38,6 +38,7 @@ ru:
         level: "Уровень"
         actions: "Действия"
         create: "Создать тест"
+        timer: "Время завершения(секунд)"
       show:
         create: "Создать вопрос"
       create:
@@ -114,6 +115,7 @@ ru:
       test_passed: "Тест пройден успешно!"
       test_failed: "Тест не пройден!"
       score: "Результат"
+      time_over: 'Время вышло!'
     show:
       in_progress_header: "Выполнение теста %{title}"
       questions_progress: "Вопрос %{current} из %{total}"
@@ -130,6 +132,7 @@ ru:
       title: "Название"
       question_count: "Кол-во вопросов"
       level: "Уровень"
+      timer: "Время завершения(секунд)"
     start:
       start: "Поехали!"
 

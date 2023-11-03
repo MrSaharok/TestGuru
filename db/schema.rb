@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_12_415231) do
+ActiveRecord::Schema.define(version: 2023_11_01_214050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,15 +28,6 @@ ActiveRecord::Schema.define(version: 2023_10_12_415231) do
     t.string "title", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "feedbacks", force: :cascade do |t|
-    t.string "email"
-    t.string "body"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_feedbacks_on_user_id"
   end
 
   create_table "gists", force: :cascade do |t|
@@ -61,6 +52,8 @@ ActiveRecord::Schema.define(version: 2023_10_12_415231) do
     t.bigint "test_id", null: false
     t.bigint "current_question_id"
     t.integer "correct_questions", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["current_question_id"], name: "index_test_passings_on_current_question_id"
     t.index ["test_id"], name: "index_test_passings_on_test_id"
     t.index ["user_id"], name: "index_test_passings_on_user_id"
@@ -73,6 +66,7 @@ ActiveRecord::Schema.define(version: 2023_10_12_415231) do
     t.bigint "author_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "timer"
     t.index ["author_id"], name: "index_tests_on_author_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
   end
@@ -103,7 +97,6 @@ ActiveRecord::Schema.define(version: 2023_10_12_415231) do
   end
 
   add_foreign_key "answers", "questions"
-  add_foreign_key "feedbacks", "users"
   add_foreign_key "gists", "questions"
   add_foreign_key "questions", "tests"
   add_foreign_key "test_passings", "questions", column: "current_question_id"

@@ -16,6 +16,7 @@ import '../utilities/tableHeaderSorting'
 import '../utilities/password'
 import '../utilities/form_inline'
 import '../utilities/progressBar'
+import '../utilities/timer'
 require("../stylesheets/application.scss")
 
 Rails.start()

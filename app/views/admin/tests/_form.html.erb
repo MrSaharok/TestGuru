@@ -13,6 +13,10 @@
       <%= form.label :category_id, class: 'form-label' %>
       <%= form.collection_select :category_id, Category.all, :id, :title, {prompt: true}, {class: 'form-select'} %>
     </div>
+    <div class="mb-3">
+      <%= form.label :timer %>
+      <%= form.number_field :timer %>
+    </div>
     <%= form.submit nil, class: 'btn btn-primary btn-lg' %>
     <span>
       <%= link_to admin_tests_path, class: 'btn btn-lg' do %>
