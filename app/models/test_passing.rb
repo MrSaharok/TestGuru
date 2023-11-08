@@ -5,11 +5,11 @@ class TestPassing < ApplicationRecord
 
   SUCCESS_RATE = 85
 
-  before_validation :before_validation_set_question, on: %i[create update]
+  before_validation :before_validation_set_question, on: %i[create update], unless: :completed_at
 
   def completed?
     return true if time_over?
-    current_question.nil?
+    update!(completed_at: Time.now) if current_question.nil?
   end
 
   def accept!(answer_ids)

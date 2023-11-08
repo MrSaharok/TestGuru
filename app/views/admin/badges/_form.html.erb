@@ -1,0 +1,44 @@
+<%= form_with model: [:admin, @badge], local: true, html: { id: 'badge-form' } do |f| %>
+  <div class="mb-3">
+    <%= f.label :name, t('.name') %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :description, t('.description') %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="mb-3">
+    <%= label :'images-container', t('.image'), class: 'form-label' %>
+    <div class="overflow-y-auto form-control" id="images-container">
+      <%= f.collection_radio_buttons :image_id, Image.all, :id, :url do |form| %>
+        <%= form.label(class: "#{'disabled' unless form.object.available?}") do %>
+          <%= form.radio_button(class: 'invisible') +
+                (content_tag :div, image_tag(form.object.url, size: '70x70'),
+                             class: 'image-cell d-flex justify-content-center align-items-center') %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="mb-3 form-check w-50">
+      <%= f.label :rule_id, t('.rule_id'), class: 'form-label'  %>
+      <%= f.collection_radio_buttons :rule_id, Rule.all, :id, :text do |form| %>
+        <%= form.label(class: "form-check-label mx-4 d-block #{'disabled' unless form.object.available?}") do %>
+          <%= form.radio_button(class: 'form-check-input', data: { option: form.object.option_key }) + form.text %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="w-50">
+      <%= f.label :rule_options, t('.rule_options') %>
+      <%= f.text_field :rule_options, disabled: true %>
+    </div>
+  </div>
+
+  <div class="form-group my-5">
+    <%= f.submit nil, class: 'btn btn-primary btn-lg' %>
+    <%= link_to t('general.back'), admin_badges_path, class: 'btn btn-lg' %>
+  </div>
+<% end %>

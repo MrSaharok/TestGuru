@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_11_01_214050) do
+ActiveRecord::Schema.define(version: 2023_13_01_224120) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "hstore"
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
@@ -22,6 +23,18 @@ ActiveRecord::Schema.define(version: 2023_11_01_214050) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "badges", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "description", null: false
+    t.string "rule_options"
+    t.bigint "rule_id", null: false
+    t.bigint "image_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["image_id"], name: "index_badges_on_image_id"
+    t.index ["rule_id"], name: "index_badges_on_rule_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -39,12 +52,26 @@ ActiveRecord::Schema.define(version: 2023_11_01_214050) do
     t.index ["question_id"], name: "index_gists_on_question_id"
   end
 
+  create_table "images", force: :cascade do |t|
+    t.string "url", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "questions", force: :cascade do |t|
     t.text "body", null: false
     t.bigint "test_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["test_id"], name: "index_questions_on_test_id"
+  end
+
+  create_table "rules", force: :cascade do |t|
+    t.string "text", null: false
+    t.string "option_key"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["text"], name: "index_rules_on_text", unique: true
   end
 
   create_table "test_passings", force: :cascade do |t|
@@ -54,6 +81,7 @@ ActiveRecord::Schema.define(version: 2023_11_01_214050) do
     t.integer "correct_questions", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "completed_at"
     t.index ["current_question_id"], name: "index_test_passings_on_current_question_id"
     t.index ["test_id"], name: "index_test_passings_on_test_id"
     t.index ["user_id"], name: "index_test_passings_on_user_id"
@@ -96,7 +124,18 @@ ActiveRecord::Schema.define(version: 2023_11_01_214050) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "users_badges", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "badge_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["badge_id"], name: "index_users_badges_on_badge_id"
+    t.index ["user_id"], name: "index_users_badges_on_user_id"
+  end
+
   add_foreign_key "answers", "questions"
+  add_foreign_key "badges", "images"
+  add_foreign_key "badges", "rules"
   add_foreign_key "gists", "questions"
   add_foreign_key "questions", "tests"
   add_foreign_key "test_passings", "questions", column: "current_question_id"
@@ -104,4 +143,6 @@ ActiveRecord::Schema.define(version: 2023_11_01_214050) do
   add_foreign_key "test_passings", "users"
   add_foreign_key "tests", "categories"
   add_foreign_key "tests", "users", column: "author_id"
+  add_foreign_key "users_badges", "badges"
+  add_foreign_key "users_badges", "users"
 end

@@ -7,6 +7,7 @@ en:
       category: "Category"
       user: "User"
       admin: "Admin"
+      badge: "Badge"
 
     attributes:
       test:
@@ -28,6 +29,11 @@ en:
         password: "Password"
         password_confirmation: "Password confirmation"
         characters_minimum: "(6 characters minimum)"
+      badge:
+        name: "Name"
+        description: "Description"
+        badge_image: "Icon"
+        rule: "Rule"
 
     errors:
       messages:
