@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!, :set_locale
   before_action :configure_sign_up_params, if: :devise_controller?
 
+  add_flash_types :success
+
   def default_url_options
     { lang: (I18n.locale if I18n.locale != I18n.default_locale) }
   end

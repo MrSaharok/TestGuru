@@ -17,6 +17,7 @@ import '../utilities/password'
 import '../utilities/form_inline'
 import '../utilities/progressBar'
 import '../utilities/timer'
+import '../utilities/rule'
 require("../stylesheets/application.scss")
 
 Rails.start()

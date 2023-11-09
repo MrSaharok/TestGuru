@@ -65,3 +65,14 @@ Answer.create!([
                  { body: '2006', question: questions[9] },
                  { body: '2007', correct: true, question: questions[9] }
                ])
+50.times do |i|
+  id = 8521692 + i
+  Image.create!(url: "https://cdn-icons-png.flaticon.com/128/8521/#{id}.png")
+end
+
+Rule.create!([
+                       { text: 'all_tests_of_category', option_key: 'Категория' },
+                       { text: 'at_first_try' },
+                       { text: 'all_tests_of_level', option_key: 'Уровень' },
+                       { text: 'all_tests' },
+                     ])

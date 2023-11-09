@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passings, dependent: :destroy
   has_many :gists, dependent: :destroy
   has_many :feedbacks, dependent: :delete_all
+  has_many :users_badges, dependent: :destroy
+  has_many :badges, through: :users_badges, dependent: :destroy
 
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true
   validates :first_name, presence: true

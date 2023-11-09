@@ -6,7 +6,9 @@
         <% if current_user.is_a?(Admin) %>
           <%= link_to t('general.gist_list'), admin_gists_path %> |
           <%= link_to t('general.management'), admin_tests_path %> |
+          <%= link_to t('general.badge_management'), admin_badges_path %> |
         <% end %>
+        <%= link_to t('general.badges'), badges_path %>
         <%= link_to t('general.logout'), destroy_user_session_path, method: :get %>
       </p>
     <% else %>

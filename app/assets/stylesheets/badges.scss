@@ -1,0 +1,53 @@
+#images-container {
+  height: 300px;
+
+  .image-cell {
+    width: 100px;
+    height: 100px;
+
+    &:hover {
+      background-color: #051b11FB;
+    }
+  }
+
+  input:checked + div {
+    background-color: #051b11FB;
+    border: 10px ridge lightblue;
+  }
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+
+  img {
+    filter: grayscale(1);
+  }
+}
+
+#badge-card {
+  border: 3px ridge lightblue;
+  border-radius: 0.375rem;
+  box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+}
+
+.badge-card {
+  border: 3px ridge lightblue;
+  border-radius: 0.375rem;
+  box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  width: 200px;
+
+  .badge-counter {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: gold;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+}

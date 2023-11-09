@@ -41,12 +41,20 @@ en:
       answer:
         create: "Create"
         update: "Save"
+      badge:
+        create: "Create"
+        update: "Save"
 
     label:
       test:
         title: "Title"
         level: "Level"
         category_id: "Category"
+      badge:
+        name: "Name"
+        description: "Description"
+        rule_options: "Rule options"
+        rule_id: "Rule"
 
     select:
       prompt: "Choose:"
@@ -126,6 +134,33 @@ en:
         email: "Author"
         gist_list_header: "Gist List"
 
+    badges:
+      destroy:
+        success: "Badge deleted"
+      update:
+        success: "Badge updated"
+      create:
+        success: "Badge created"
+      form:
+        image: "Select an image"
+        name: "Name"
+        description: "Description"
+        rule_options: "Rule options"
+        rule_id: "Rule"
+      new:
+        create_badge_header: "Create Badge"
+      edit:
+        edit_badge_header: "Edit Badge"
+      index:
+        name: "Name"
+        description: "Description"
+        rule: "Rule"
+        actions: "Actions"
+        no_badges_placeholder: "No badges yet"
+        new_badge_link: "Create badge"
+      show:
+        reward_for: "Reward for %{description}"
+
   general:
     errors: "Errors"
     back: "Back"
@@ -136,9 +171,11 @@ en:
     welcome: "Welcome, %{first_name} guru!"
     unauthorized: "Unauthorized to see this page"
     welcome_flash: "Welcome, %{first_name}!"
-    management: "Management"
+    management: "Management test"
     gist_list: "Gist list"
     feedback: "Feedback"
+    badge_management: "Badge Management"
+    badges: "Badges"
 
   test_passings:
     result:
@@ -152,8 +189,10 @@ en:
       questions_progress: "Question %{current} out of %{total}"
       next: "Next"
       gist_question: "Gist Question"
+      already_completed: "This attempt is over but feel free to take another test"
     update:
       test_completed: "Test completed!"
+    new_badge_received: "Congratulations! You're awarded with a badge!"
 
   tests:
     test:
